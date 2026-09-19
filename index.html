@@ -1,10 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Olivier KOnsulting, LLC: nonclinical, regulatory and AI-enabled drug development consulting from Kenneth J. Olivier, Jr., Ph.D.">
-<title>Olivier KOnsulting</title>
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Olivier KOnsulting</title></head><body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap">
@@ -231,10 +225,48 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
 .foot p{margin:0;max-width:74ch;line-height:1.5}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* ---------- Jest OK, the site mascot (all classes prefixed jo-) ---------- */
+:root{--jo-size:clamp(100px,11.5vw,168px)}
+@media (max-width:640px){:root{--jo-size:96px}}
+@property --jo-fade{syntax:"<percentage>";inherits:false;initial-value:130%}
+.jo{position:fixed;right:8px;bottom:-6px;z-index:30;width:var(--jo-size);height:var(--jo-size);pointer-events:none;transform-origin:50% 85%;will-change:transform}
+.jo[hidden],.jo-back[hidden]{display:none!important}
+.jo-btn{display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:none;font:inherit;color:inherit;cursor:pointer;pointer-events:auto;-webkit-tap-highlight-color:transparent;border-radius:50% 50% 0 0;transform-origin:50% 100%}
+.jo-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.jo-svg{--jo-fade:130%;display:block;width:100%;height:100%;overflow:visible;transition:--jo-fade .45s ease;-webkit-mask-image:linear-gradient(#000 calc(var(--jo-fade) - 16%),transparent var(--jo-fade));mask-image:linear-gradient(#000 calc(var(--jo-fade) - 16%),transparent var(--jo-fade))}
+.jo:not([data-state="home"]) .jo-svg{--jo-fade:100%}
+.jo:not([data-state="home"]) .jo-btn,.jo:not([data-state="home"]) .jo-x{pointer-events:none}
+/* eyes are driven by script, so the built-in look-around loop is switched off here */
+.jo .jo-pupil{animation:none}
+/* excited while chasing */
+.jo[data-state="chase"] .jo-mouth{animation:none;transform:scale(1.1,1.22)}
+.jo[data-state="chase"] .jo-bell{animation-duration:.7s}
+.jo[data-state="chase"] .jo-hand{animation-duration:.7s}
+.jo-hop .jo-btn{animation:jo-hop .5s ease-out}
+.jo-settle .jo-btn{animation:jo-settle .55s ease-out}
+@keyframes jo-hop{0%{transform:none}40%{transform:translateY(-14px) rotate(-3deg)}100%{transform:none}}
+@keyframes jo-settle{0%{transform:translateY(-10px) scale(1.02,.98)}40%{transform:translateY(0) scale(1.06,.92)}70%{transform:scale(.98,1.03)}100%{transform:none}}
+
+.jo-say{position:absolute;bottom:calc(100% - 8px);right:12px;width:max-content;max-width:min(232px,calc(100vw - 32px));background:var(--paper);color:var(--green);border:1px solid var(--line);border-radius:4px;padding:10px 14px;font:italic 600 1.08rem/1.25 var(--display);box-shadow:0 10px 26px rgba(20,48,31,.16);opacity:0;transform:translateY(6px);transform-origin:90% 100%;transition:opacity .25s,transform .25s;pointer-events:none}
+.jo-say::after{content:"";position:absolute;right:26px;bottom:-7px;width:12px;height:12px;background:var(--paper);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.jo[data-side="left"] .jo-say{right:auto;left:12px;transform-origin:10% 100%}
+.jo[data-side="left"] .jo-say::after{right:auto;left:26px}
+.jo-talk .jo-say{opacity:1;transform:none}
+.jo-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.jo-x{position:absolute;left:-2px;bottom:16%;width:24px;height:24px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--muted);font:500 15px/1 var(--ui);cursor:pointer;pointer-events:auto;opacity:0;transition:opacity .2s}
+.jo:hover .jo-x,.jo:focus-within .jo-x,.jo-x:focus-visible{opacity:1}
+@media (hover:none){.jo-x{opacity:.8}}
+.jo-x:hover{color:var(--green);border-color:var(--gold)}
+.jo-back{position:fixed;right:12px;bottom:12px;z-index:30;font:500 .68rem/1 var(--ui);letter-spacing:.1em;text-transform:uppercase;background:var(--paper);color:var(--green);border:1px solid var(--line);border-radius:2px;padding:10px 12px;cursor:pointer;opacity:.8}
+.jo-back:hover{opacity:1;border-color:var(--gold)}
+/* keep the footer text clear of the mascot */
+html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
+@media (prefers-reduced-motion:reduce){.jo-svg *{animation:none!important}.jo-btn{animation:none!important}.jo-say,.jo-x,.jo-svg{transition:none}}
+@media print{.jo,.jo-back{display:none!important}}
 </style>
 
-</head>
-<body>
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Olivier KOnsulting, home">
@@ -760,5 +792,412 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
   }
 })();
 </script>
-</body>
-</html>
+
+
+<div class="jo" id="jo" data-state="home" data-side="right">
+  <button class="jo-btn" type="button" aria-label="Jest OK, the site mascot. Press for a message.">
+<svg class="jo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+<defs>
+  <linearGradient id="jo-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2E6C2"/><stop offset=".5" stop-color="#C9A968"/><stop offset="1" stop-color="#AE8B4C"/></linearGradient>
+  <linearGradient id="jo-plum" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A4790"/><stop offset=".55" stop-color="#4B2A5C"/><stop offset="1" stop-color="#341A41"/></linearGradient>
+  <linearGradient id="jo-green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3F8663"/><stop offset=".55" stop-color="#22573F"/><stop offset="1" stop-color="#1B4332"/></linearGradient>
+  <radialGradient id="jo-ivory" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#FFFDF7"/><stop offset=".7" stop-color="#F4EEE1"/><stop offset="1" stop-color="#DDD1B6"/></radialGradient>
+  <radialGradient id="jo-bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#2C6448"/><stop offset=".6" stop-color="#1B4332"/><stop offset="1" stop-color="#0E2418"/></radialGradient>
+  <radialGradient id="jo-nose" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#9A62B0"/><stop offset="1" stop-color="#4B2A5C"/></radialGradient>
+  <radialGradient id="jo-iris" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#1B4332"/><stop offset=".9" stop-color="#3F8663"/><stop offset="1" stop-color="#C9A968"/></radialGradient>
+  <clipPath id="jo-circ"><circle cx="256" cy="256" r="256"/></clipPath>
+  <clipPath id="jo-bodyClip"><path d="M64,548 L64,512 C64,446 140,410 256,410 C372,410 448,446 448,512 L448,548 Z"/></clipPath>
+  <clipPath id="jo-eyeL"><ellipse cx="218" cy="292" rx="19" ry="13"/></clipPath>
+  <clipPath id="jo-eyeR"><ellipse cx="294" cy="292" rx="19" ry="13"/></clipPath>
+  <clipPath id="jo-mouthClip"><path d="M210,346 C226,388 286,388 302,346 C280,358 232,358 210,346 Z"/></clipPath>
+  <pattern id="jo-dia" patternUnits="userSpaceOnUse" width="44" height="44"><path d="M22 0 L44 22 L22 44 L0 22 Z" fill="none" stroke="#E8D3A0" stroke-opacity=".28" stroke-width="1.4"/></pattern>
+  <filter id="jo-soft"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<style>
+  .jo-float{animation:jo-float 4s ease-in-out infinite}
+  @keyframes jo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .jo-turn{transform-origin:256px 400px}
+  .jo-head{animation:jo-tilt 8s ease-in-out infinite;transform-origin:256px 400px}
+  @keyframes jo-tilt{0%,100%{transform:rotate(0)}25%{transform:rotate(-2.6deg)}75%{transform:rotate(2.6deg)}}
+  .jo-lobe{animation:jo-sway 4s ease-in-out infinite}
+  .jo-lobeL{transform-origin:196px 232px}
+  .jo-lobeR{transform-origin:196px 232px;animation-delay:-2s}
+  .jo-lobeC{transform-origin:256px 232px;animation-delay:-1s}
+  @keyframes jo-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+  .jo-bell{animation:jo-swing 2s ease-in-out infinite}
+  .jo-bellR{animation-delay:-.7s} .jo-bellC{animation-delay:-1.3s}
+  @keyframes jo-swing{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(13deg)}}
+  .jo-ruff{animation:jo-ruff 4s ease-in-out infinite;transform-origin:256px 400px}
+  @keyframes jo-ruff{0%,100%{transform:scale(1)}50%{transform:scale(1.02,1.035)}}
+  .jo-lid{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0)}
+  .jo-lidL{animation:jo-blinkL 8s infinite}
+  .jo-lidR{animation:jo-blinkR 8s infinite}
+  @keyframes jo-blinkL{0%,20%{transform:scaleY(0)}22%,23.5%{transform:scaleY(1)}25%,84%{transform:scaleY(0)}86%,87.5%{transform:scaleY(1)}89%,100%{transform:scaleY(0)}}
+  @keyframes jo-blinkR{0%,20%{transform:scaleY(0)}22%,23.5%{transform:scaleY(1)}25%,58%{transform:scaleY(0)}60%,70%{transform:scaleY(1)}72%,84%{transform:scaleY(0)}86%,87.5%{transform:scaleY(1)}89%,100%{transform:scaleY(0)}}
+  .jo-winkline{opacity:0;animation:jo-wl 8s infinite}
+  @keyframes jo-wl{0%,59%{opacity:0}61%,70%{opacity:1}72%,100%{opacity:0}}
+  .jo-pupil{animation:jo-look 8s ease-in-out infinite}
+  @keyframes jo-look{0%,8%{transform:translate(0,0)}14%,30%{transform:translate(-3.5px,1px)}38%,52%{transform:translate(3.5px,-1px)}60%,74%{transform:translate(0,0)}80%,90%{transform:translate(2px,2px)}100%{transform:translate(0,0)}}
+  .jo-mouth{animation:jo-grin 8s ease-in-out infinite;transform-origin:256px 346px}
+  @keyframes jo-grin{0%,55%,76%,100%{transform:scale(1,1)}62%,70%{transform:scale(1.07,1.16)}}
+  .jo-cheek{animation:jo-cheek 8s ease-in-out infinite}
+  @keyframes jo-cheek{0%,55%,76%,100%{opacity:.5}62%,70%{opacity:.85}}
+  .jo-hand{animation:jo-wave 4s ease-in-out infinite}
+  @keyframes jo-wave{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(8deg)}}
+  .jo-spark{transform-box:fill-box;transform-origin:center;animation:jo-twinkle 4s ease-in-out infinite}
+  @keyframes jo-twinkle{0%,100%{opacity:.15;transform:scale(.4)}50%{opacity:1;transform:scale(1.15)}}
+  .jo-winkspark{transform-box:fill-box;transform-origin:center;opacity:0;animation:jo-pop 8s ease-out infinite}
+  @keyframes jo-pop{0%,59%{opacity:0;transform:scale(.2) rotate(0)}64%{opacity:1;transform:scale(1.25) rotate(20deg)}72%{opacity:0;transform:scale(.6) rotate(45deg)}100%{opacity:0}}
+  .jo-helix{animation:jo-scroll 8s linear infinite}
+  @keyframes jo-scroll{from{transform:translateY(0)}to{transform:translateY(120px)}}
+</style>
+<g class="jo-float">
+  <!-- sparkles -->
+  <g>
+    <g transform="translate(96 118) scale(1.0)"><path class="jo-spark" style="animation-delay:0s" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" fill="#F2E6C2"/></g>
+    <g transform="translate(426 96) scale(0.8)"><path class="jo-spark" style="animation-delay:-1.3s" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" fill="#F2E6C2"/></g>
+    <g transform="translate(72 300) scale(0.7)"><path class="jo-spark" style="animation-delay:-2.2s" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" fill="#F2E6C2"/></g>
+    <g transform="translate(452 300) scale(0.9)"><path class="jo-spark" style="animation-delay:-0.6s" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" fill="#F2E6C2"/></g>
+    <g transform="translate(140 60) scale(0.55)"><path class="jo-spark" style="animation-delay:-3s" d="M0,-10 C1.5,-3 3,-1.5 10,0 C3,1.5 1.5,3 0,10 C-1.5,3 -3,1.5 -10,0 C-3,-1.5 -1.5,-3 0,-10 Z" fill="#F2E6C2"/></g>
+  </g>
+  <!-- body (motley tunic: green | plum) -->
+  <path d="M64,548 L64,512 C64,446 140,410 256,410 C372,410 448,446 448,512 L448,548 Z" fill="url(#jo-plum)"/>
+  <g clip-path="url(#jo-bodyClip)">
+    <rect x="0" y="380" width="256" height="180" fill="url(#jo-green)"/>
+    <rect x="0" y="380" width="512" height="180" fill="url(#jo-dia)"/>
+    <line x1="256" y1="400" x2="256" y2="560" stroke="#E8D3A0" stroke-opacity=".5" stroke-width="2"/>
+  </g>
+  <path d="M64,548 L64,512 C64,446 140,410 256,410 C372,410 448,446 448,512 L448,548" fill="none" stroke="url(#jo-gold)" stroke-width="3"/>
+  <!-- chest monogram: O + K with nucleus -->
+  <g transform="translate(256 476)">
+    <circle r="25" fill="#14301F" stroke="url(#jo-gold)" stroke-width="3.2"/>
+    <g stroke="#F4EEE1" stroke-width="3" stroke-linecap="round" fill="none">
+      <line x1="-6" y1="-13" x2="-6" y2="13"/>
+      <line x1="-6" y1="2" x2="9" y2="-12"/>
+      <path d="M-5,2 C2,4 6,10 11,14"/>
+    </g>
+    <circle cx="11" cy="14" r="3" fill="#C9A968"/>
+  </g>
+  <!-- ruff -->
+  <g class="jo-ruff">
+    <circle cx="355.0" cy="379.3" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="157.0" cy="379.3" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="354.9" cy="388.9" r="17" fill="url(#jo-ivory)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="157.1" cy="388.9" r="17" fill="url(#jo-ivory)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="346.9" cy="398.2" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="165.1" cy="398.2" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="331.5" cy="406.3" r="17" fill="url(#jo-ivory)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="180.5" cy="406.3" r="17" fill="url(#jo-ivory)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="310.0" cy="412.6" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="202.0" cy="412.6" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="284.1" cy="416.6" r="17" fill="url(#jo-ivory)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="227.9" cy="416.6" r="17" fill="url(#jo-ivory)" stroke="#8B6A2F" stroke-width="1.2"/>
+<circle cx="256.0" cy="418.0" r="17" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.2"/>
+  </g>
+  <!-- OK-sign arm (viewer's right) -->
+  <g transform="translate(402 436) scale(1.12)">
+    <path d="M-30,0 L30,0 L52,110 L-36,110 Z" fill="url(#jo-plum)" stroke="url(#jo-gold)" stroke-width="2.5" stroke-linejoin="round"/>
+    <g class="jo-hand">
+      <!-- glove outlines first so shapes fuse into one silhouette -->
+      <g stroke="#B9A574" stroke-linecap="round" fill="none">
+        <line x1="6" y1="-46" x2="9" y2="-96" stroke-width="18"/>
+        <line x1="18" y1="-42" x2="33" y2="-90" stroke-width="18"/>
+        <line x1="28" y1="-32" x2="52" y2="-72" stroke-width="18"/>
+        <circle cx="-24" cy="-62" r="14" stroke-width="16"/>
+      </g>
+      <ellipse cx="0" cy="-30" rx="27" ry="27" fill="#EFE7D3" stroke="#B9A574" stroke-width="3"/>
+      <g stroke="#F6F0E0" stroke-linecap="round" fill="none">
+        <line x1="6" y1="-46" x2="9" y2="-96" stroke-width="13"/>
+        <line x1="18" y1="-42" x2="33" y2="-90" stroke-width="13"/>
+        <line x1="28" y1="-32" x2="52" y2="-72" stroke-width="13"/>
+        <circle cx="-24" cy="-62" r="14" stroke-width="10"/>
+      </g>
+      <ellipse cx="0" cy="-30" rx="24" ry="24" fill="url(#jo-ivory)"/>
+      <path d="M-14,-50 C-8,-44 -8,-38 -14,-32" stroke="#D3C6A5" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- gold cuff -->
+      <rect x="-32" y="-8" width="64" height="18" rx="6" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.5"/>
+      <g fill="#4B2A5C"><path d="M-16,1 l5,-5 l5,5 l-5,5 z"/><path d="M6,1 l5,-5 l5,5 l-5,5 z"/></g>
+    </g>
+  </g>
+  <!-- head -->
+  <g class="jo-turn"><g class="jo-head">
+    <!-- hat lobes: left (plum), right (green), centre (gold) -->
+    <g class="jo-lobe jo-lobeL">
+      <path d="M227.8,228.0 L224.2,220.1 L220.5,212.4 L216.6,204.9 L212.7,197.5 L208.7,190.4 L204.7,183.5 L200.5,176.8 L196.3,170.3 L192.0,164.1 L187.6,158.0 L183.2,152.2 L178.6,146.7 L174.1,141.4 L169.4,136.3 L164.7,131.5 L160.0,127.0 L155.1,122.7 L150.2,118.7 L145.3,115.0 L140.3,111.6 L135.2,108.6 L130.1,105.8 L124.9,103.4 L119.6,101.3 L114.3,99.7 L109.0,98.4 L103.6,97.5 L98.2,97.1 L92.9,97.2 L87.7,97.7 L82.5,98.7 L77.5,100.2 L72.8,102.2 L68.2,104.6 L63.9,107.4 L59.9,110.6 L56.1,114.2 L52.6,118.1 L49.3,122.4 L46.2,126.9 L43.4,131.8 L40.8,137.0 L38.4,142.6 L36.1,148.5 L34.1,154.8 L32.3,161.4 L30.8,168.4 L30.0,176.0 L30.0,176.0 L34.3,169.8 L38.1,163.9 L41.8,158.4 L45.4,153.5 L49.1,149.0 L52.7,145.0 L56.2,141.5 L59.7,138.4 L63.2,135.9 L66.5,133.8 L69.7,132.1 L72.8,130.9 L75.8,130.0 L78.5,129.5 L81.2,129.3 L83.6,129.4 L86.0,129.7 L88.3,130.3 L90.5,131.0 L92.7,131.9 L94.9,133.1 L97.2,134.4 L99.5,135.9 L101.9,137.7 L104.3,139.7 L106.8,141.9 L109.4,144.4 L112.0,147.2 L114.7,150.2 L117.4,153.4 L120.1,157.0 L122.9,160.7 L125.6,164.8 L128.4,169.0 L131.2,173.6 L133.9,178.3 L136.7,183.3 L139.4,188.5 L142.1,194.0 L144.7,199.7 L147.4,205.5 L149.9,211.6 L152.5,217.9 L154.9,224.3 L157.4,231.0 L159.7,237.8 L162.0,244.8 L164.2,252.0 Z" fill="url(#jo-plum)" stroke="url(#jo-gold)" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M205.4,215.1 L200.6,205.3 L195.6,195.8 L190.5,186.6 L185.3,177.9 L180.0,169.6 L174.5,161.7 L168.9,154.2 L163.2,147.2 L157.5,140.6 L151.6,134.6 L145.7,129.0 L139.7,123.9 L133.6,119.4 L127.4,115.4 L121.2,112.0 L114.9,109.2 L108.6,107.1 L102.2,105.6 L95.9,104.9 L89.6,104.9 L83.5,105.7 L77.5,107.2 L71.8,109.5 L66.4,112.6 L61.3,116.4 L56.5,120.8 L52.0,125.9 L47.8,131.6 L43.9,138.0 L40.3,145.1" fill="none" stroke="#F2E6C2" stroke-opacity=".32" stroke-width="3" stroke-linecap="round"/>
+      <path d="M147.4,142.8 l5.6,8.0 l-5.6,8.0 l-5.6,-8.0 z" fill="#E8D3A0" fill-opacity="0.85"/><path d="M101.6,109.9 l4.2,6.0 l-4.2,6.0 l-4.2,-6.0 z" fill="#E8D3A0" fill-opacity="0.85"/>
+      <g class="jo-bell jo-bellL" style="transform-origin:30px 176px"><circle cx="30" cy="179" r="4" fill="none" stroke="#8B6A2F" stroke-width="1.6"/><circle cx="30" cy="191" r="12" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.3"/><circle cx="30" cy="192" r="5" fill="#AE8B4C" stroke="#8B6A2F" stroke-width=".8"/><circle cx="28.4" cy="190.4" r="1.6" fill="#F2E6C2"/><circle cx="39" cy="184" r="3.2" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width=".8"/></g>
+    </g>
+    <g transform="translate(512 0) scale(-1 1)">
+      <g class="jo-lobe jo-lobeR">
+        <path d="M227.8,228.0 L224.2,220.1 L220.5,212.4 L216.6,204.9 L212.7,197.5 L208.7,190.4 L204.7,183.5 L200.5,176.8 L196.3,170.3 L192.0,164.1 L187.6,158.0 L183.2,152.2 L178.6,146.7 L174.1,141.4 L169.4,136.3 L164.7,131.5 L160.0,127.0 L155.1,122.7 L150.2,118.7 L145.3,115.0 L140.3,111.6 L135.2,108.6 L130.1,105.8 L124.9,103.4 L119.6,101.3 L114.3,99.7 L109.0,98.4 L103.6,97.5 L98.2,97.1 L92.9,97.2 L87.7,97.7 L82.5,98.7 L77.5,100.2 L72.8,102.2 L68.2,104.6 L63.9,107.4 L59.9,110.6 L56.1,114.2 L52.6,118.1 L49.3,122.4 L46.2,126.9 L43.4,131.8 L40.8,137.0 L38.4,142.6 L36.1,148.5 L34.1,154.8 L32.3,161.4 L30.8,168.4 L30.0,176.0 L30.0,176.0 L34.3,169.8 L38.1,163.9 L41.8,158.4 L45.4,153.5 L49.1,149.0 L52.7,145.0 L56.2,141.5 L59.7,138.4 L63.2,135.9 L66.5,133.8 L69.7,132.1 L72.8,130.9 L75.8,130.0 L78.5,129.5 L81.2,129.3 L83.6,129.4 L86.0,129.7 L88.3,130.3 L90.5,131.0 L92.7,131.9 L94.9,133.1 L97.2,134.4 L99.5,135.9 L101.9,137.7 L104.3,139.7 L106.8,141.9 L109.4,144.4 L112.0,147.2 L114.7,150.2 L117.4,153.4 L120.1,157.0 L122.9,160.7 L125.6,164.8 L128.4,169.0 L131.2,173.6 L133.9,178.3 L136.7,183.3 L139.4,188.5 L142.1,194.0 L144.7,199.7 L147.4,205.5 L149.9,211.6 L152.5,217.9 L154.9,224.3 L157.4,231.0 L159.7,237.8 L162.0,244.8 L164.2,252.0 Z" fill="url(#jo-green)" stroke="url(#jo-gold)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M205.4,215.1 L200.6,205.3 L195.6,195.8 L190.5,186.6 L185.3,177.9 L180.0,169.6 L174.5,161.7 L168.9,154.2 L163.2,147.2 L157.5,140.6 L151.6,134.6 L145.7,129.0 L139.7,123.9 L133.6,119.4 L127.4,115.4 L121.2,112.0 L114.9,109.2 L108.6,107.1 L102.2,105.6 L95.9,104.9 L89.6,104.9 L83.5,105.7 L77.5,107.2 L71.8,109.5 L66.4,112.6 L61.3,116.4 L56.5,120.8 L52.0,125.9 L47.8,131.6 L43.9,138.0 L40.3,145.1" fill="none" stroke="#F2E6C2" stroke-opacity=".32" stroke-width="3" stroke-linecap="round"/>
+        <path d="M147.4,142.8 l5.6,8.0 l-5.6,8.0 l-5.6,-8.0 z" fill="#E8D3A0" fill-opacity="0.85"/><path d="M101.6,109.9 l4.2,6.0 l-4.2,6.0 l-4.2,-6.0 z" fill="#E8D3A0" fill-opacity="0.85"/>
+        <g class="jo-bell jo-bellR" style="transform-origin:30px 176px"><circle cx="30" cy="179" r="4" fill="none" stroke="#8B6A2F" stroke-width="1.6"/><circle cx="30" cy="191" r="12" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.3"/><circle cx="30" cy="192" r="5" fill="#AE8B4C" stroke="#8B6A2F" stroke-width=".8"/><circle cx="28.4" cy="190.4" r="1.6" fill="#F2E6C2"/><circle cx="39" cy="184" r="3.2" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width=".8"/></g>
+      </g>
+    </g>
+    <g class="jo-lobe jo-lobeC">
+      <path d="M293.8,235.8 L292.7,230.7 L291.8,225.6 L290.9,220.6 L290.0,215.7 L289.2,210.9 L288.5,206.2 L287.8,201.6 L287.2,197.0 L286.6,192.5 L286.1,188.1 L285.7,183.8 L285.3,179.5 L284.9,175.3 L284.6,171.2 L284.4,167.2 L284.2,163.2 L284.0,159.3 L283.9,155.5 L283.9,151.7 L283.9,148.0 L283.9,144.4 L284.0,140.8 L284.1,137.3 L284.3,133.8 L284.6,130.4 L284.8,127.0 L285.2,123.7 L285.5,120.4 L285.9,117.1 L286.4,113.9 L286.9,110.8 L287.5,107.7 L288.1,104.5 L288.7,101.5 L289.4,98.4 L290.1,95.4 L290.9,92.4 L291.7,89.3 L292.6,86.3 L293.5,83.3 L294.4,80.3 L295.4,77.3 L296.4,74.2 L297.4,71.1 L298.5,67.9 L299.4,64.5 L300.3,60.9 L300.0,56.0 L300.0,56.0 L295.0,55.6 L291.3,56.7 L287.8,58.2 L284.5,59.9 L281.3,61.8 L278.2,63.8 L275.2,66.1 L272.2,68.4 L269.4,70.9 L266.6,73.6 L263.9,76.3 L261.3,79.2 L258.7,82.2 L256.2,85.3 L253.8,88.5 L251.5,91.8 L249.3,95.2 L247.1,98.7 L245.0,102.3 L243.0,106.0 L241.0,109.8 L239.2,113.7 L237.4,117.6 L235.7,121.7 L234.0,125.9 L232.5,130.1 L231.0,134.5 L229.6,138.9 L228.3,143.4 L227.1,148.0 L225.9,152.6 L224.9,157.4 L223.9,162.2 L223.0,167.1 L222.1,172.1 L221.4,177.2 L220.7,182.3 L220.1,187.5 L219.5,192.9 L219.1,198.2 L218.7,203.7 L218.4,209.2 L218.2,214.9 L218.1,220.6 L218.0,226.4 L218.0,232.2 L218.1,238.2 L218.2,244.2 Z" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M236.3,228.3 L236.1,220.7 L236.0,213.2 L236.0,205.9 L236.1,198.8 L236.4,191.7 L236.8,184.9 L237.3,178.1 L238.0,171.6 L238.8,165.1 L239.7,158.8 L240.8,152.7 L241.9,146.7 L243.3,140.8 L244.7,135.1 L246.3,129.5 L248.0,124.1 L249.9,118.8 L251.9,113.7 L254.0,108.7 L256.2,103.9 L258.6,99.2 L261.1,94.7 L263.7,90.3 L266.5,86.1 L269.3,82.1 L272.3,78.2 L275.5,74.5 L278.7,70.9 L282.1,67.6 L285.6,64.4" fill="none" stroke="#FFFDF7" stroke-opacity=".5" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M254.9,148.8 l5.6,8.0 l-5.6,8.0 l-5.6,-8.0 z" fill="#4B2A5C" fill-opacity="0.85"/><path d="M265.2,104.4 l4.2,6.0 l-4.2,6.0 l-4.2,-6.0 z" fill="#4B2A5C" fill-opacity="0.85"/>
+      <g class="jo-bell jo-bellC" style="transform-origin:300px 56px"><circle cx="300" cy="59" r="4" fill="none" stroke="#8B6A2F" stroke-width="1.6"/><circle cx="300" cy="71" r="12" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="1.3"/><circle cx="300" cy="72" r="5" fill="#AE8B4C" stroke="#8B6A2F" stroke-width=".8"/><circle cx="298.4" cy="70.4" r="1.6" fill="#F2E6C2"/><circle cx="309" cy="64" r="3.2" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width=".8"/></g>
+    </g>
+    <!-- ears + face -->
+    <ellipse cx="169" cy="306" rx="11" ry="15" fill="url(#jo-ivory)" stroke="#CDBE9B" stroke-width="1.5"/>
+    <ellipse cx="343" cy="306" rx="11" ry="15" fill="url(#jo-ivory)" stroke="#CDBE9B" stroke-width="1.5"/>
+    <ellipse cx="256" cy="300" rx="86" ry="92" fill="url(#jo-ivory)" stroke="#CDBE9B" stroke-width="1.5"/>
+    <g class="jo-face">
+    <!-- cheeks + face paint diamonds -->
+    <g filter="url(#jo-soft)" class="jo-cheek"><circle cx="198" cy="352" r="14" fill="#E8A0A0"/><circle cx="314" cy="352" r="14" fill="#E8A0A0"/></g>
+    <path d="M203,328 l6,-9 l6,9 l-6,9 z" fill="#1B4332"/>
+    <path d="M297,328 l6,-9 l6,9 l-6,9 z" fill="#4B2A5C"/>
+    <!-- gold masquerade mask -->
+    <path d="M160,276 C182,256 224,258 256,276 C288,258 330,256 352,276 C350,304 326,322 298,320 C278,318 266,304 256,302 C246,304 234,318 214,320 C186,322 162,304 160,276 Z"
+          fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="2"/>
+    <path d="M170,272 C190,262 216,262 240,274" fill="none" stroke="#FFFDF7" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M342,272 C322,262 296,262 272,274" fill="none" stroke="#FFFDF7" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="176" cy="286" r="4" fill="#4B2A5C"/><circle cx="336" cy="286" r="4" fill="#4B2A5C"/>
+    <path d="M256,282 l5,6 l-5,6 l-5,-6 z" fill="#4B2A5C"/>
+    <!-- eyes -->
+    <ellipse cx="218" cy="292" rx="19" ry="13" fill="#FFFDF7" stroke="#8B6A2F" stroke-width="1.5"/>
+    <ellipse cx="294" cy="292" rx="19" ry="13" fill="#FFFDF7" stroke="#8B6A2F" stroke-width="1.5"/>
+    <g clip-path="url(#jo-eyeL)"><g class="jo-pupil"><circle cx="218" cy="292" r="10" fill="url(#jo-iris)"/><circle cx="218" cy="292" r="4.6" fill="#0B1A12"/><circle cx="222" cy="288" r="2.6" fill="#fff"/></g></g>
+    <g clip-path="url(#jo-eyeR)"><g class="jo-pupil"><circle cx="294" cy="292" r="10" fill="url(#jo-iris)"/><circle cx="294" cy="292" r="4.6" fill="#0B1A12"/><circle cx="298" cy="288" r="2.6" fill="#fff"/></g></g>
+    <g clip-path="url(#jo-eyeL)"><rect class="jo-lid jo-lidL" x="196" y="276" width="46" height="32" fill="url(#jo-gold)" stroke="#6B4E1E" stroke-width="2.5"/></g>
+    <g clip-path="url(#jo-eyeR)"><rect class="jo-lid jo-lidR" x="272" y="276" width="46" height="32" fill="url(#jo-gold)" stroke="#6B4E1E" stroke-width="2.5"/></g>
+    <path class="jo-winkline" d="M276,296 Q294,282 312,296" fill="none" stroke="#5A3F15" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- nose -->
+    <circle cx="256" cy="322" r="9" fill="url(#jo-nose)"/>
+    <circle cx="253" cy="319" r="2.4" fill="#fff" fill-opacity=".7"/>
+    <!-- mouth -->
+    <g class="jo-mouth">
+      <path d="M210,346 C226,388 286,388 302,346 C280,358 232,358 210,346 Z" fill="#3A1F45"/>
+      <g clip-path="url(#jo-mouthClip)">
+        <path d="M212,346 C236,360 276,360 300,346 L300,356 C276,368 236,368 212,356 Z" fill="#FFFDF7"/>
+        <ellipse cx="256" cy="378" rx="20" ry="9" fill="#D9727A"/>
+      </g>
+      <path d="M210,346 C226,388 286,388 302,346" fill="none" stroke="#4B2A5C" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M205,340 q-1,7 5,10" fill="none" stroke="#4B2A5C" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M307,340 q1,7 -5,10" fill="none" stroke="#4B2A5C" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    </g>
+    <!-- hat band -->
+    <path d="M158,242 Q256,196 354,242 L350,264 Q256,224 162,264 Z" fill="url(#jo-gold)" stroke="#8B6A2F" stroke-width="2" stroke-linejoin="round"/>
+    <g fill="#4B2A5C"><path d="M196,236 l6,-7 l6,7 l-6,7 z" transform="translate(0 2)"/><path d="M250,224 l6,-7 l6,7 l-6,7 z" transform="translate(-3 3)"/><path d="M304,236 l6,-7 l6,7 l-6,7 z" transform="translate(0 2)"/></g>
+    <!-- wink sparkle -->
+    <g transform="translate(336 262)"><path class="jo-winkspark" d="M0,-13 C2,-4 4,-2 13,0 C4,2 2,4 0,13 C-2,4 -4,2 -13,0 C-4,-2 -2,-4 0,-13 Z" fill="#FFFDF7" stroke="#C9A968" stroke-width="1"/></g>
+  </g></g>
+</g>
+</svg>
+  </button>
+  <div class="jo-say" aria-hidden="true"></div>
+  <span class="jo-live" role="status" aria-live="polite"></span>
+  <button class="jo-x" type="button" aria-label="Hide the mascot">&times;</button>
+</div>
+<button class="jo-back" id="jo-back" type="button" hidden>Bring back Jest OK</button>
+<script>
+(function(){
+  /* Jest OK: eyes follow the pointer; now and then it leaves its corner to chase the cursor. */
+  var root=document.getElementById('jo');
+  if(!root||!root.querySelector)return;
+  var de=document.documentElement;
+  var btn=root.querySelector('.jo-btn'), svg=root.querySelector('.jo-svg'),
+      say=root.querySelector('.jo-say'), live=root.querySelector('.jo-live'),
+      hideBtn=root.querySelector('.jo-x'), back=document.getElementById('jo-back');
+  var pupils=svg.querySelectorAll('.jo-pupil'), face=svg.querySelector('.jo-face'), turn=svg.querySelector('.jo-turn');
+
+  function mq(q){return !!(window.matchMedia&&window.matchMedia(q).matches)}
+  var reduce=mq('(prefers-reduced-motion: reduce)');
+  var canChase=mq('(hover: hover) and (pointer: fine)')&&!reduce;
+  function lsGet(k){try{return window.localStorage.getItem(k)}catch(e){return null}}
+  function lsSet(k,v){try{if(v==null)window.localStorage.removeItem(k);else window.localStorage.setItem(k,v)}catch(e){}}
+  function ssGet(k){try{return window.sessionStorage.getItem(k)}catch(e){return null}}
+  function ssSet(k,v){try{window.sessionStorage.setItem(k,v)}catch(e){}}
+  function clamp(v,a,b){return v<a?a:v>b?b:v}
+  function pick(a){return a[Math.floor(Math.random()*a.length)]}
+
+  var RIGHT=8, BOTTOM=-6;                 /* must match .jo in the stylesheet */
+  var lines=['Everything will be OK and is going according to plan.','Human creation, AI execution.','Ask about AI agents. The contact section is at the bottom of the page.'];
+  var chaseLines=['Wait up!','Got you!','Where are you going?','Catch me if you can!'];
+
+  var state='home', off={x:0,y:0}, rot=0, size=140, vw=0, vh=0, homeL=0, homeT=0;
+  var ptr={x:0,y:0,t:0,has:false}, gaze={x:0,y:0}, idle={x:-.5,y:-.1}, idleT=0;
+  var raf=0, last=0, wake=0, chaseEnd=0, chaseTimer=0, sayTimer=0, lineIx=0;
+
+  function measure(){
+    vw=de.clientWidth; vh=window.innerHeight; size=root.offsetWidth||140;
+    homeL=vw-RIGHT-size; homeT=vh-size-BOTTOM;
+  }
+  function setState(s){state=s;root.setAttribute('data-state',s)}
+
+  /* ---- looking ---- */
+  function applyLook(gx,gy){
+    var t='translate('+(gx*8).toFixed(2)+'px,'+(gy*4.6).toFixed(2)+'px)';
+    for(var i=0;i<pupils.length;i++)pupils[i].style.transform=t;
+    if(face)face.style.transform='translate('+(gx*4.5).toFixed(2)+'px,'+(gy*3).toFixed(2)+'px)';
+    if(turn)turn.style.transform='rotate('+(gx*3.2).toFixed(2)+'deg)';
+  }
+  function stepGaze(dt){
+    var now=performance.now(), tx, ty;
+    var following=ptr.has&&(state!=='home'||now-ptr.t<6000);
+    if(following){
+      var ex=homeL+off.x+size*.5, ey=homeT+off.y+size*.57;
+      var dx=ptr.x-ex, dy=ptr.y-ey, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<1){tx=0;ty=0}else{var m=Math.min(1,d/(size*.7));tx=dx/d*m;ty=dy/d*m}
+    }else if(reduce){tx=0;ty=0}
+    else{
+      if(now>idleT){idle={x:Math.random()*1.6-.8,y:Math.random()*.9-.4};idleT=now+2200+Math.random()*2600}
+      tx=idle.x;ty=idle.y;
+    }
+    var k=reduce?1:1-Math.exp(-dt*12);
+    var nx=gaze.x+(tx-gaze.x)*k, ny=gaze.y+(ty-gaze.y)*k;
+    var moving=Math.abs(nx-gaze.x)>.0015||Math.abs(ny-gaze.y)>.0015;
+    gaze.x=nx;gaze.y=ny;
+    if(moving||!raf)applyLook(nx,ny);
+    return moving;
+  }
+
+  /* ---- moving (chase and return) ---- */
+  function stepMove(dt){
+    var tx=0,ty=0,now=performance.now();
+    if(state==='chase'){
+      var cx=homeL+off.x+size/2, cy=homeT+off.y+size/2;
+      var vx=ptr.x-cx, vy=ptr.y-cy, d=Math.sqrt(vx*vx+vy*vy)||1, D=size*.8+26;
+      var gx=cx, gy=cy;
+      if(d>D){gx=ptr.x-vx/d*D;gy=ptr.y-vy/d*D}
+      gx=clamp(gx,size/2+4,vw-size/2-4); gy=clamp(gy,size/2+4,vh-size/2-4);
+      tx=gx-size/2-homeL; ty=gy-size/2-homeT;
+      if(now>chaseEnd)returnHome();
+    }
+    var k=1-Math.exp(-dt*(state==='return'?2.4:3.4));
+    var mx=(tx-off.x)*k, my=(ty-off.y)*k, sp=Math.sqrt(mx*mx+my*my)/dt;
+    if(sp>1100){mx*=1100/sp;my*=1100/sp}
+    off.x+=mx; off.y+=my;
+    rot+=(clamp(mx/dt*.012,-12,12)-rot)*(1-Math.exp(-dt*8));
+    if(state==='return'&&Math.abs(off.x)<1.5&&Math.abs(off.y)<1.5){
+      off.x=0;off.y=0;rot=0;root.style.transform='';setState('home');settle();return false;
+    }
+    root.style.transform='translate3d('+off.x.toFixed(1)+'px,'+off.y.toFixed(1)+'px,0) rotate('+rot.toFixed(2)+'deg)';
+    return true;
+  }
+
+  /* ---- frame loop: runs only while something is moving ---- */
+  function frame(ts){
+    raf=0;
+    var dt=Math.min(.05,Math.max(.001,(ts-last)/1000)); last=ts;
+    var busy=false;
+    if(state!=='home')busy=stepMove(dt);
+    if(stepGaze(dt))busy=true;
+    if(busy)raf=window.requestAnimationFrame(frame);
+    else scheduleWake();
+  }
+  function kick(){
+    if(raf||root.hidden)return;
+    clearTimeout(wake);
+    last=performance.now();
+    raf=window.requestAnimationFrame(frame);
+  }
+  function scheduleWake(){
+    clearTimeout(wake);
+    if(root.hidden||document.hidden)return;
+    wake=setTimeout(kick,1200);
+  }
+
+  /* ---- speech bubble ---- */
+  function talk(txt,ms,announce){
+    clearTimeout(sayTimer);
+    say.textContent=txt;
+    root.setAttribute('data-side',(homeL+off.x)<150?'left':'right');
+    root.classList.add('jo-talk');
+    if(announce){live.textContent='';setTimeout(function(){live.textContent=txt},30)}
+    sayTimer=setTimeout(function(){root.classList.remove('jo-talk')},ms||4500);
+  }
+  function once(cls,ms){
+    btn.classList.remove('jo-hop','jo-settle'); root.classList.remove('jo-hop','jo-settle');
+    void root.offsetWidth; root.classList.add(cls);
+    setTimeout(function(){root.classList.remove(cls)},ms);
+  }
+  function settle(){once('jo-settle',650)}
+
+  /* ---- chase ---- */
+  function eligible(){
+    return state==='home'&&!root.hidden&&!document.hidden&&vw>=720&&ptr.has&&performance.now()-ptr.t<3500;
+  }
+  function startChase(){
+    measure();
+    setState('chase');
+    chaseEnd=performance.now()+6500+Math.random()*3500;
+    talk(pick(chaseLines),2200);
+    kick();
+  }
+  function returnHome(){
+    if(state!=='chase')return;
+    setState('return');
+    root.classList.remove('jo-talk');
+    kick();
+  }
+  function planChase(first){
+    clearTimeout(chaseTimer);
+    if(!canChase)return;
+    chaseTimer=setTimeout(tryChase,first?15000+Math.random()*8000:28000+Math.random()*22000);
+  }
+  function tryChase(){
+    if(!eligible()){chaseTimer=setTimeout(tryChase,4000);return}
+    startChase();planChase(false);
+  }
+
+  /* ---- events ---- */
+  function onMove(e){
+    ptr.x=e.clientX;ptr.y=e.clientY;ptr.t=performance.now();ptr.has=true;
+    kick();
+  }
+  document.addEventListener('pointermove',onMove,{passive:true});
+  document.addEventListener('pointerdown',function(e){onMove(e);returnHome()},{passive:true});
+  document.addEventListener('keydown',returnHome);
+  de.addEventListener('mouseleave',function(){ptr.has=false;returnHome();kick()});
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden&&state!=='home'){off.x=0;off.y=0;rot=0;root.style.transform='';setState('home')}
+    else kick();
+  });
+  window.addEventListener('resize',function(){measure()});
+  window.addEventListener('jo-chase',function(){          /* handy for testing: window.dispatchEvent(new Event('jo-chase')) */
+    if(state!=='home'||root.hidden)return;
+    measure();
+    if(!ptr.has){ptr.x=vw/2;ptr.y=vh/2;ptr.t=performance.now();ptr.has=true}
+    startChase();
+  });
+
+  btn.addEventListener('click',function(){
+    if(state!=='home')return;
+    once('jo-hop',520);
+    talk(lines[lineIx%lines.length],5200,true);lineIx++;
+  });
+
+  function setHidden(h){
+    root.hidden=h; back.hidden=!h;
+    de.classList.toggle('jo-on',!h);
+    if(h){clearTimeout(sayTimer);root.classList.remove('jo-talk')}
+  }
+  hideBtn.addEventListener('click',function(){lsSet('jo-hidden','1');setHidden(true)});
+  back.addEventListener('click',function(){
+    lsSet('jo-hidden',null);setHidden(false);measure();kick();
+    if(canChase)planChase(true);
+    talk('Miss me?',2600);
+  });
+
+  /* ---- start ---- */
+  measure();
+  if(lsGet('jo-hidden')==='1')setHidden(true);
+  else{
+    setHidden(false);
+    applyLook(0,0);
+    kick();
+    planChase(true);
+    if(!ssGet('jo-hi')){
+      ssSet('jo-hi','1');
+      setTimeout(function(){if(!root.hidden&&state==='home'&&vw>=720)talk('Hi, I’m Jest OK. Everything will be OK.',5500)},1600);
+    }
+  }
+})();
+</script>
+</body></html>
