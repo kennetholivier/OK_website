@@ -121,6 +121,23 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
 .scope dd span:not(:last-child)::after{content:"\00B7";color:var(--gold);margin:0 .55em 0 .6em}
 @media (max-width:640px){.scope{grid-template-columns:minmax(0,1fr);gap:4px}.scope dd{margin-bottom:14px}}
 
+/* AI */
+.ai{background:var(--plum-soft);border-block:1px solid #D9CCE2}
+.ai .section-head{max-width:72ch}
+.ai .eyebrow{color:var(--plum)}
+.ai .section-head p{color:var(--ink)}
+.ai-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,6vw,84px);align-items:start}
+.ai-col h3{color:var(--plum);margin-bottom:18px}
+.ai-list{margin:0;padding:0;list-style:none;border-top:2px solid var(--plum)}
+.ai-list li{position:relative;padding:13px 0 13px 24px;border-bottom:1px solid #D9CCE2;font-weight:500;color:var(--ink)}
+.ai-list li::before{content:"";position:absolute;left:0;top:1.42em;width:11px;height:1px;background:var(--gold-ink)}
+.ai-more{margin:20px 0 0;color:var(--muted);font-style:italic;max-width:52ch}
+.ai .actions{margin-top:26px}
+.motto{margin:clamp(40px,6vw,68px) 0 0;padding-top:clamp(28px,4vw,44px);border-top:1px solid #CDBBD9;text-align:center}
+.motto .eyebrow{margin-bottom:16px}
+.motto blockquote{margin:0 auto;max-width:30ch;font:italic 600 clamp(1.9rem,3.8vw,3rem)/1.12 var(--display);color:var(--green);text-wrap:balance}
+@media (max-width:860px){.ai-grid{grid-template-columns:minmax(0,1fr)}}
+
 /* track record */
 .products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px 20px;margin:0 0 clamp(40px,6vw,72px);padding:0;list-style:none}
 .products li{border-left:2px solid var(--gold);padding-left:14px}
@@ -226,6 +243,7 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
     </a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#services">Services</a>
+      <a href="#ai">AI</a>
       <a href="#track-record">Track record</a>
       <a href="#deals">Deals</a>
       <a href="#about">About</a>
@@ -319,6 +337,49 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
         <dt>Therapeutic areas</dt>
         <dd><span>Oncology</span> <span>Immunology</span> <span>Neurology</span> <span>Cardiology</span> <span>Metabolic disease</span> <span>Neuromuscular disease</span> <span>Rare disease</span> <span>Infectious disease</span> <span>Fibrosis</span></dd>
       </dl>
+    </div>
+  </section>
+
+  <section class="section ai" id="ai">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">AI at OK</p>
+        <h2>We put AI to work for you.</h2>
+        <p>OK uses AI as a tool to enhance the human experience during drug development and commercialization. We put AI to work for you to better enable higher quality human interactions without monotonous distractions and better preparation for key executive decisions.</p>
+      </div>
+
+      <div class="ai-grid">
+        <div class="ai-col">
+          <h3>Examples and AI agent development available for</h3>
+          <ul class="ai-list">
+            <li>Regulatory Affairs and Operations (Global)</li>
+            <li>Program and Alliance Management</li>
+            <li>Nonclinical Sciences (including Pharmacology and Toxicology)</li>
+            <li>Bioanalytical, Quality Assurance</li>
+          </ul>
+          <p class="ai-more">&hellip;and many other needs of growing biotech companies. Just ask and you shall receive.</p>
+          <div class="actions">
+            <a class="btn" href="mailto:KO@olivierKOnsulting.com?subject=AI%20agents%20for%20my%20team">Ask about AI agents</a>
+          </div>
+        </div>
+        <div class="ai-col">
+          <h3>Key Dream Building skills</h3>
+          <ul class="ai-list">
+            <li>Corporate AI implementation (functional AI agent creation and validation)</li>
+            <li>Corporate development</li>
+            <li>Risk mitigation</li>
+            <li>Strategic budgeting</li>
+            <li>Core value focus</li>
+            <li>Team training and environment</li>
+            <li>KISS approach</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="motto">
+        <p class="eyebrow">Our motto</p>
+        <blockquote>&ldquo;Everything will be OK and is going according to plan.&rdquo;</blockquote>
+      </figure>
     </div>
   </section>
 
@@ -601,12 +662,13 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
           <a class="btn" href="mailto:KO@olivierKOnsulting.com?subject=Nonclinical%20and%20regulatory%20strategy">Strategy and submissions</a>
           <a class="btn ghost" href="mailto:KO@olivierKOnsulting.com?subject=Due%20diligence%20support">Due diligence</a>
           <a class="btn ghost" href="mailto:KO@olivierKOnsulting.com?subject=Training%20or%20workshop">Training</a>
+          <a class="btn ghost" href="mailto:KO@olivierKOnsulting.com?subject=AI%20agents%20for%20my%20team">AI agents</a>
         </div>
       </div>
       <dl class="details">
         <div><dt>Email</dt><dd><a href="mailto:KO@olivierKOnsulting.com">KO@olivierKOnsulting.com</a><br><a href="mailto:olivierKOnsulting@outlook.com">olivierKOnsulting@outlook.com</a></dd></div>
         <div><dt>Phone</dt><dd><a href="tel:+16179491575">1-617-949-1575</a></dd></div>
-        <div><dt>Office</dt><dd>Olivier KOnsulting, LLC<br>100 Agricultural Ave<br>Rehoboth, MA 02769</dd></div>
+        <div><dt>Practice</dt><dd>Olivier KOnsulting, LLC<br>Massachusetts, USA</dd></div>
       </dl>
     </div>
   </section>
