@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Biotech Dream Builder</title>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><title>Biotech Dream Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -16,6 +14,7 @@
   --f-display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
   --f-body:"Figtree","Segoe UI",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bubble-ln:color-mix(in srgb,var(--teal) 45%,var(--surface));
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -316,7 +315,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 footer{padding-block:32px 44px;font-size:.86rem;color:var(--ink-2)}
 footer .wrap{display:grid;gap:10px}
 footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.path{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.path,.thought-b{transition:none}}
 
 /* ---------- Glim ---------- */
 .arc-card{position:relative}
@@ -341,6 +340,23 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 .dream svg{display:block;width:100%;max-width:220px;height:auto}
 .dream figcaption{font:700 1.05rem var(--f-display);text-align:center}
 .fine-print{color:var(--ink-2);font-size:.9rem;margin-top:16px;max-width:70ch}
+/* Glim's dream bubbles (statements) */
+.wall{margin-top:clamp(34px,5vw,60px)}
+.wall-h{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:8px 28px;margin-bottom:26px}
+.wall-h h3{font-size:clamp(1.45rem,2.6vw,2rem);font-weight:700}
+.wall-h p{color:var(--ink-2);font-size:.95rem;max-width:46ch}
+.thoughts{list-style:none;margin:0;padding:0 0 30px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px}
+@media (max-width:900px){.thoughts{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.thoughts{grid-template-columns:1fr}}
+.thoughts li{position:relative;display:grid}
+.thoughts li::before,.thoughts li::after{content:"";position:absolute;border-radius:50%;background:var(--surface);border:2px solid var(--bubble-ln);pointer-events:none}
+.thoughts li::before{width:15px;height:15px;left:30px;bottom:-19px}
+.thoughts li::after{width:8px;height:8px;left:19px;bottom:-31px}
+.thought-b{display:grid;align-content:start;gap:9px;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--bubble-ln);border-radius:30px;padding:20px 24px 22px;cursor:pointer;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.thought-b:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:var(--shadow)}
+.thought-b .tag{font:500 .68rem var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--teal-ink)}
+.thought-b .say{font:700 clamp(1.1rem,1.6vw,1.28rem)/1.22 var(--f-display);letter-spacing:-.01em;text-wrap:balance}
+.thought-b:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .cside{display:grid;gap:18px;justify-items:start}
 .glim-cheer{width:170px}
 .glim-cheer svg{display:block;width:100%;height:auto}
@@ -369,12 +385,16 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 .glim-toggle{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:10000;display:inline-flex;align-items:center;gap:9px;font:600 .88rem var(--f-body);padding:9px 14px 9px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;box-shadow:var(--shadow)}
 .glim-toggle .dot{width:12px;height:12px;border-radius:50%;background:var(--ink-2);box-shadow:none;transition:background .2s}
 .glim-toggle[aria-pressed="true"] .dot{background:var(--amber);box-shadow:0 0 0 4px color-mix(in srgb,var(--amber) 28%,transparent),0 0 12px var(--amber)}
-#glimSay{position:fixed;left:0;top:0;z-index:10000;pointer-events:none;max-width:220px;font:600 .85rem/1.3 var(--f-body);padding:7px 12px;border-radius:14px 14px 14px 4px;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);box-shadow:var(--shadow);opacity:0;transition:opacity .25s}
+#glimSay{position:fixed;left:0;top:0;z-index:10000;pointer-events:none;width:max-content;max-width:min(250px,calc(100vw - 32px));font:600 .92rem/1.35 var(--f-body);text-wrap:balance;padding:11px 16px;border-radius:22px;background:var(--surface);color:var(--ink);border:2px solid var(--bubble-ln);box-shadow:var(--shadow);opacity:0;transition:opacity .25s}
+#glimSay::before,#glimSay::after{content:"";position:absolute;border-radius:50%;background:var(--surface);border:2px solid var(--bubble-ln)}
+#glimSay::before{width:12px;height:12px;left:12px;bottom:-17px}
+#glimSay::after{width:7px;height:7px;left:3px;bottom:-27px}
+#glimSay.below::before{bottom:auto;top:-17px}
+#glimSay.below::after{bottom:auto;top:-27px}
 #glimSay.on{opacity:1}
 @media print{#glim,#glimFx,#glimSay,.glim-toggle{display:none}}
 </style>
 
-</head><body>
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Biotech Dream Builder home">
@@ -513,7 +533,7 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <p class="eyebrow">Meet Glim</p>
       <h2>A light for the long nights.</h2>
       <p class="lede">Behind every program on this site is a person hoping for something ordinary: a full night's sleep, a morning at the kitchen table. Glim is the firefly who keeps that hope in the room while our experts do the careful work, and who reminds every builder who they are building for.</p>
-      <div class="meet-cta"><button class="btn" id="glimCall" type="button">Call Glim over</button><span class="hint">Glim follows your cursor. Click anywhere for a burst of light.</span></div>
+      <div class="meet-cta"><button class="btn" id="glimCall" type="button">Call Glim over</button><button class="btn ghost" id="glimDream" type="button">Hear a dream bubble</button><span class="hint">Glim follows your cursor. Click anywhere for a burst of light.</span></div>
     </div>
   </div>
   <div class="wrap">
@@ -539,7 +559,24 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <g clip-path="url(#bbpulsec)"><rect x="92" y="50" width="104" height="80" fill="#DDF3F0"/><path d="M144,120 C108,96 116,62 144,80 C172,62 180,96 144,120Z" fill="#F5A623"/><path d="M92,98 H120 L128,84 L138,112 L148,74 L157,98 H196" fill="none" stroke="#0D2B33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
 <rect x="92" y="50" width="104" height="80" rx="18" fill="none" stroke="#A7D3CC" stroke-width="2.5"/></svg></div><figcaption>A steady heartbeat</figcaption></figure>
     </div>
-    <p class="fine-print">Dream bubbles show the ordinary moments patients and families hope to get back. They show hope, never a promise, and they never imply that any treatment works.</p>
+    <div class="wall">
+      <div class="wall-h">
+        <h3>What Glim is dreaming about</h3>
+        <p>Glim shares these as it flies. Select a bubble and Glim will come over to say it.</p>
+      </div>
+      <ul class="thoughts" aria-label="Glim's dream bubbles">
+        <li><button class="thought-b" type="button" data-say="Everything is OK and going according to plan."><span class="tag">The plan</span><span class="say">Everything is OK and going according to plan.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="Dreams are ideas manifested in real life."><span class="tag">Dreams</span><span class="say">Dreams are ideas manifested in real life.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="Name a task, we will accomplish this together."><span class="tag">Together</span><span class="say">Name a task, we will accomplish this together.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="KOllaboration and Teamwork."><span class="tag">Teamwork</span><span class="say">KOllaboration and Teamwork.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="The Best Teams have similar KOre values."><span class="tag">Values</span><span class="say">The Best Teams have similar KOre values.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="Grit and Resilience builds Dream Champions."><span class="tag">Grit</span><span class="say">Grit and Resilience builds Dream Champions.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="A dream with a plan becomes a program."><span class="tag">Momentum</span><span class="say">A dream with a plan becomes a program.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="Experts decide. Agents draft. Dreamers lead."><span class="tag">Roles</span><span class="say">Experts decide. Agents draft. Dreamers lead.</span></button></li>
+        <li><button class="thought-b" type="button" data-say="Keep dreaming. I'll keep the light on."><span class="tag">Hope</span><span class="say">Keep dreaming. I'll keep the light on.</span></button></li>
+      </ul>
+    </div>
+    <p class="fine-print">Dream bubbles show the ordinary moments patients and families hope to get back, and Glim's words are encouragement for the people building. They show hope, never a promise, and they never imply that any treatment works.</p>
   </div>
 </section>
 
@@ -1079,15 +1116,49 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   var now=performance.now()/1000;
   var st={x:-90,y:innerHeight+70,vx:0,vy:0,tx:0,ty:0,mx:vw/2,my:vh/2,lastMove:-99,lastInput:now,wanderT:0,flash:0,fx:1,summon:0,sx:0,sy:0,blinkT:now+3,blink:0};
   var parts=[], sleeping=false;
-  var sayEl=document.getElementById('glimSay'), sayT=0, sayCool=0, sayIdle=performance.now()/1000+16, prevMode='';
-  var CHASE_LINES=['Wait up!','Follow the light!','Got you!','Over here!'];
-  var IDLE_LINES=['Every cure starts as a dream.','Dream big, build carefully.','Catch me if you can!','Where to next?'];
+  var sayEl=document.getElementById('glimSay'), sayT=0, sayCool=0, dreamAt=performance.now()/1000+9, prevMode='';
+  var CHASE_LINES=['Wait up!','Follow the light!','Got you!','Over here!','Catch me if you can!','Where to next?'];
+  var DREAMS=[
+    "Everything is OK and going according to plan.",
+    "Dreams are ideas manifested in real life.",
+    "Name a task, we will accomplish this together.",
+    "KOllaboration and Teamwork.",
+    "The Best Teams have similar KOre values.",
+    "Grit and Resilience builds Dream Champions.",
+    "Every cure starts as a dream.",
+    "Dream big, build carefully.",
+    "A dream with a plan becomes a program.",
+    "Experts decide. Agents draft. Dreamers lead.",
+    "Keep dreaming. I'll keep the light on.",
+    "Every big dream starts with one small step.",
+    "Small teams can chase big dreams.",
+    "Every great dream deserves a great team.",
+    "Setbacks are data. Keep building.",
+    "Patience is part of the science.",
+    "Behind every program is a real person, hoping.",
+    "Ask for help early. Great builders do.",
+    "OK is where we start. Extraordinary is where we're headed.",
+    "KOmmitment turns dreams into milestones.",
+    "Celebrate the small wins.",
+    "Trust the process, and the people in it.",
+    "Curiosity is where great science begins."
+  ];
+  var deck=[], lastDream='';
+  function nextDream(){
+    if(!deck.length){
+      deck=DREAMS.slice();
+      for(var i=deck.length-1;i>0;i--){ var j=(Math.random()*(i+1))|0, tmp=deck[i]; deck[i]=deck[j]; deck[j]=tmp; }
+      if(deck[deck.length-1]===lastDream) deck.unshift(deck.pop());
+    }
+    lastDream=deck.pop(); return lastDream;
+  }
   function pick(a){return a[(Math.random()*a.length)|0];}
   function say(txt,ms,force){
     var t=performance.now()/1000;
     if(!sayEl||(!force&&t<sayCool)) return;
-    sayCool=t+5; sayEl.textContent=txt; sayEl.classList.add('on');
-    clearTimeout(sayT); sayT=setTimeout(function(){ sayEl.classList.remove('on'); },ms||2400);
+    ms = ms || Math.min(7000, 2300 + txt.length*55);
+    sayCool=t+ms/1000+1.5; sayEl.textContent=txt; sayEl.classList.add('on');
+    clearTimeout(sayT); sayT=setTimeout(function(){ sayEl.classList.remove('on'); },ms);
   }
   var COLS=['245,166,35','255,194,74','255,214,120'];
   function rnd(a,b){return a+Math.random()*(b-a);}
@@ -1114,6 +1185,17 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     var r=call.getBoundingClientRect(); var t=performance.now()/1000;
     setAwake(true,true); st.summon=t+2.6; st.sx=r.left+r.width/2; st.sy=Math.max(60,r.top-52); st.flash=1; say('You called?',2400,true);
   });
+  function summonSay(el,txt){
+    var r=el.getBoundingClientRect(), t=performance.now()/1000, line=txt||nextDream();
+    var ms=Math.min(7000,2300+line.length*55);
+    setAwake(true,true); st.summon=t+Math.max(2.8,ms/1000-.2); st.sx=r.left+Math.min(r.width-40,r.width*.75); st.sy=Math.max(70,r.top-46); st.flash=1;
+    dreamAt=t+ms/1000+8; say(line,ms,true);
+  }
+  var dreamBtn=document.getElementById('glimDream');
+  if(dreamBtn) dreamBtn.addEventListener('click',function(){ summonSay(dreamBtn); });
+  Array.prototype.forEach.call(document.querySelectorAll('.thought-b'),function(b){
+    b.addEventListener('click',function(){ summonSay(b,b.getAttribute('data-say')); });
+  });
 
   function moved(x,y){ var t=performance.now()/1000; st.mx=x; st.my=y; st.lastMove=t; st.lastInput=t; }
   addEventListener('pointermove',function(e){ moved(e.clientX,e.clientY); },{passive:true});
@@ -1135,9 +1217,10 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     if(mode!==prevMode){
       if(mode==='chase'&&(prevMode==='wander'||prevMode==='sleep')) say(pick(CHASE_LINES),2000);
       if(prevMode==='sleep'&&mode!=='sleep'&&mode!=='rest') say('Oh, hello!',2200,true);
+      if(mode==='sleep'&&prevMode!=='sleep') say('Time for a dream of my own...',3200,true);
       prevMode=mode;
     }
-    if(mode==='chase'&&t>sayIdle){ say(pick(IDLE_LINES),2800); sayIdle=t+rnd(18,30); }
+    if((mode==='chase'||mode==='wander')&&t>dreamAt&&t>=sayCool){ say(nextDream()); dreamAt=t+rnd(11,17); }
     var K=6,C=4;
     if(mode==='chase'){
       var a=t*1.9;
@@ -1166,8 +1249,13 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     root.style.transform='translate3d('+(st.x-W/2).toFixed(1)+'px,'+(st.y+bob-H/2).toFixed(1)+'px,0) rotate('+tilt.toFixed(1)+'deg) scaleX('+st.fx.toFixed(2)+')';
     root.classList.toggle('calm',sp<170&&!sleeping);
     if(sayEl&&sayEl.classList.contains('on')){
-      var bx=clamp(st.x+26,10,vw-230), by=Math.max(8,st.y+bob-H/2-38);
-      sayEl.style.transform='translate3d('+bx.toFixed(0)+'px,'+by.toFixed(0)+'px,0)';
+      var bw=sayEl.offsetWidth||240, bh=sayEl.offsetHeight||40;
+      var bx=clamp(st.x+14,16,Math.max(16,vw-bw-16));
+      var topY=st.y+bob-H/2-4, above=topY>=bh+30;
+      if(sayEl.classList.contains('below')===above) sayEl.classList.toggle('below',!above);
+      sayEl.style.transform = above
+        ? 'translate3d('+bx.toFixed(0)+'px,'+topY.toFixed(0)+'px,0) translateY(-100%)'
+        : 'translate3d('+bx.toFixed(0)+'px,'+(st.y+bob+H/2+4).toFixed(0)+'px,0)';
     }
 
     st.flash*=Math.max(0,1-dt*2.2);
@@ -1210,5 +1298,4 @@ footer .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 })();
 
 </script>
-
 </body></html>
