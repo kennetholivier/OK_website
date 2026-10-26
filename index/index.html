@@ -88,10 +88,11 @@ h3{font-weight:600;font-size:1.5rem;line-height:1.15}
 /* ---------- stats band ---------- */
 .band{position:relative;background:var(--green-deep);color:#F4EEE1;overflow:hidden;padding-block:clamp(44px,6vw,72px)}
 .band canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
-.stats{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,44px);margin:0;padding:0;list-style:none}
+.stats{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(16px,2.4vw,36px);margin:0;padding:0;list-style:none}
 .stats li{border-top:1px solid rgba(232,211,160,.45);padding-top:18px}
-.stats .n{display:block;font:600 clamp(3rem,5.6vw,4.6rem)/1 var(--display);color:var(--gold-soft);letter-spacing:-.01em}
+.stats .n{display:block;font:600 clamp(2.3rem,4.4vw,4.6rem)/1 var(--display);color:var(--gold-soft);letter-spacing:-.01em}
 .stats .l{display:block;margin-top:10px;font-size:.98rem;line-height:1.45;color:#E4E8DF;max-width:26ch}
+@media (max-width:980px){.stats{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}}
 @media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}}
 @media (max-width:420px){.stats{grid-template-columns:1fr}}
 
@@ -279,6 +280,7 @@ html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
       <a href="#ai">AI</a>
       <a href="#track-record">Track record</a>
       <a href="#deals">Deals</a>
+      <a href="#sbir">SBIR grants</a>
       <a href="#about">About</a>
       <a href="#teaching">Teaching</a>
       <a href="#publications">Publications</a>
@@ -293,8 +295,7 @@ html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
       <div>
         <p class="eyebrow">Drug development consulting &middot; Massachusetts</p>
         <h1>Nonclinical and regulatory strategy that gets programs <em>into the clinic.</em></h1>
-        <p class="lede">Olivier KOnsulting, LLC is the practice of Kenneth J. Olivier, Jr., Ph.D., who has developed drugs for more than 24 years at Regeneron, Biogen, GSK, Merrimack and five more biotechs. He advises programs from discovery through Phase&nbsp;1/2 in small molecules, biologics, and cell and gene therapies.</p>
-        <p class="tagline">Human creation, <span>AI execution.</span></p>
+        <p class="lede">Olivier KOnsulting, LLC is the practice of Kenneth J. Olivier, Jr., Ph.D., who has developed drugs for more than 25 years at Regeneron, Biogen, GSK, Merrimack and five more biotechs. Most of his career has been leading Regulatory, Nonclinical and Quality efforts from discovery through Phase&nbsp;2/3 in small molecules, biologics, and cell and gene therapies, resulting in multiple successful approvals through authoring BLAs, NDAs and MAAs listed below.</p>
         <div class="actions">
           <a class="btn" href="mailto:KO@olivierKOnsulting.com?subject=Program%20inquiry">Discuss your program</a>
           <a class="textlink" href="#track-record">See the track record</a>
@@ -310,10 +311,11 @@ html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
     <canvas id="helix" aria-hidden="true"></canvas>
     <div class="wrap">
       <ul class="stats">
-        <li><span class="n">24+</span><span class="l">years developing drugs, from candidate selection through approval</span></li>
-        <li><span class="n">9</span><span class="l">biotech and pharma companies, from Regeneron to Neutrolis</span></li>
-        <li><span class="n">11</span><span class="l">due diligence and partnering deals supported, 2003&ndash;2020</span></li>
-        <li><span class="n">0</span><span class="l">FDA or EMA comments on the ONIVYDE nonclinical NDA and MAA sections</span></li>
+        <li><span class="n">25+</span><span class="l">years developing drugs, from candidate selection through approval</span></li>
+        <li><span class="n">57</span><span class="l">INDs authored or contributed to</span></li>
+        <li><span class="n">3</span><span class="l">BLAs supported</span></li>
+        <li><span class="n">2</span><span class="l">NDAs supported</span></li>
+        <li><span class="n">$4.6M</span><span class="l">in NIH SBIR grants, as principal investigator</span></li>
       </ul>
     </div>
   </section>
@@ -351,7 +353,6 @@ html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
           <p>Outsourced quality systems for young companies, GLP CRO qualification and in-process audits, and readiness for eCTD and SEND submissions.</p>
         </li>
         <li class="feature">
-          <span class="tag">Human creation, AI execution</span>
           <h3>AI-enabled regulatory and quality workflows</h3>
           <p>Custom AI agents, connections and tools for regulatory, nonclinical, GxP and quality work, including regulatory submissions, built by a drug developer who has written the documents by hand. Paired with the team sites and document infrastructure that keep pipelines and regulatory files in order.</p>
         </li>
@@ -570,6 +571,43 @@ html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
         <li><span class="yr">2018</span><span class="dl">Morphic &ndash; AbbVie</span><span class="why">Oral integrins in fibrosis</span></li>
         <li><span class="yr">2020</span><span class="dl">TScan &ndash; Novartis</span><span class="why">TCR T-cell targeted therapies</span></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="section alt" id="sbir">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">SBIR grants</p>
+        <h2>Two NIH SBIR awards, as principal investigator.</h2>
+        <p>Through Boston Immune Technologies and Therapeutics, Inc., Dr.&nbsp;Olivier has served as principal investigator on two National Institutes of Health SBIR awards &mdash; NIAID and NCI &mdash; totaling roughly $4.6&nbsp;million, advancing novel antagonist antibodies from preclinical proof-of-concept toward IND-enabling studies.</p>
+      </div>
+      <div class="roles">
+        <article class="role">
+          <div>
+            <h3>BITT311 &middot; CD40 antagonist</h3>
+            <p class="title">NIAID SBIR Phase&nbsp;II, Grant 1R44AI179385 &middot; Boston Immune Technologies and Therapeutics, Inc.</p>
+            <p class="dates">2023 &ndash; 2026 &middot; ~$2.2M awarded</p>
+          </div>
+          <ul>
+            <li>Advancing BITT311 (originally BITT-101), a novel dominant CD40 antagonist antibody, for the treatment of Sj&ouml;gren Syndrome.</li>
+            <li>Selected BITT311 as the lead candidate after it out-performed comparator CD40 antagonists in B-cell depletion, proliferation and activation assays run on healthy-donor and Sj&ouml;gren&rsquo;s patient samples.</li>
+            <li>Now advancing the program into GLP-scale production and nonclinical toxicology and pharmacokinetic studies in cynomolgus monkeys ahead of an IND filing.</li>
+          </ul>
+        </article>
+        <article class="role">
+          <div>
+            <h3>BITT-1492 &middot; TNFR2 antagonist</h3>
+            <p class="title">NCI SBIR Fast-Track, Grant R44CA265510 &middot; Boston Immune Technologies and Therapeutics, Inc.</p>
+            <p class="dates">2021 &ndash; 2023+ &middot; ~$2.4M awarded</p>
+          </div>
+          <ul>
+            <li>Preclinical toxicology and pharmacology evaluation of BITT-1492, a first-in-class dominant antagonist antibody to TNFR2, for Cutaneous T-Cell Lymphoma (CTCL).</li>
+            <li>Completed the Phase&nbsp;I dose range-finding toxicology and pharmacokinetic study in cynomolgus monkeys, establishing a safe starting point for further development.</li>
+            <li>Continued into Phase&nbsp;II for cGMP-scale production and GLP IND-enabling toxicology and pharmacokinetic studies ahead of clinical translation in CTCL patients.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note">Boston Immune Technologies and Therapeutics, Inc. (Winchester, MA) is led by Denise Faustman, with Dr.&nbsp;Olivier serving as Head of Toxicology and principal investigator on its SBIR-funded programs.</p>
     </div>
   </section>
 
@@ -1017,7 +1055,7 @@ html.jo-on .foot .wrap{padding-right:calc(var(--gutter) + var(--jo-size) + 8px)}
   function pick(a){return a[Math.floor(Math.random()*a.length)]}
 
   var RIGHT=8, BOTTOM=-6;                 /* must match .jo in the stylesheet */
-  var lines=['Everything will be OK and is going according to plan.','Human creation, AI execution.','Ask about AI agents. The contact section is at the bottom of the page.'];
+  var lines=['Everything will be OK and is going according to plan.','Ask about AI agents. The contact section is at the bottom of the page.'];
   var chaseLines=['Wait up!','Got you!','Where are you going?','Catch me if you can!'];
 
   var state='home', off={x:0,y:0}, rot=0, size=140, vw=0, vh=0, homeL=0, homeT=0;
